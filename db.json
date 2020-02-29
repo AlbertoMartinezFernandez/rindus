@@ -1,0 +1,76 @@
+{
+    "trainings": [{
+        "id": "1",
+        "eventType": "training",
+        "description": "Football training",
+        "dateStart": "2020-05-15T07:15:00+0100",
+        "dateEnd": "2020-05-15T09:16:00+0100",
+        "place": "Ciudad Deportiva"
+    }, {
+        "id": "2",
+        "eventType": "training",
+        "description": "Swimming training",
+        "dateStart": "2020-05-27T07:15:00+0100",
+        "dateEnd": "2020-05-27T09:16:00+0100",
+        "place": "Carranque"
+    }],
+    "doctor_appointments": [{
+        "id": "3",
+        "eventType": "doctor",
+        "description": "Pediatrician",
+        "dateStart": "2020-11-30T07:16:30+0100",
+        "dateEnd": "2020-11-30T09:17:30+0100",
+        "place": "Hospital Carlos Haya"
+    }, {
+        "id": "4",
+        "eventType": "doctor",
+        "description": "Dentist",
+        "dateStart": "2020-07-29T07:16:30+0100",
+        "dateEnd": "2020-07-29T09:17:30+0100",
+        "place": "Calle Larios"
+    }],
+    "activities": [{
+        "id": 5,
+        "eventType": "activity",
+        "dateStart": "2020-02-28T08:00:00.000Z",
+        "dateEnd": "2020-02-28T12:00:00.000Z",
+        "description": "Sprint planning",
+        "place": "Office",
+        "participants": [{
+            "name": "Alberto",
+            "surname": "Martínez Fernández"
+        }, {
+            "name": "Javier",
+            "surname": "Martínez Fernández"
+        }]
+    }],
+    "outings": [{
+        "id": 6,
+        "eventType": "outing",
+        "dateStart": "2020-08-06T12:00:00.000Z",
+        "dateEnd": "2020-08-06T16:00:00.000Z",
+        "description": "Customer Office",
+        "place": "Germany",
+        "participants": [{
+            "name": "Mari Carmen",
+            "surname": "Fernández Borrajo"
+        }]
+    }, {
+        "id": 7,
+        "eventType": "outing",
+        "dateStart": "2020-11-09T12:00:00.000Z",
+        "dateEnd": "2020-11-09T16:00:00.000Z",
+        "description": "Berlin Zoo",
+        "place": "Germany",
+        "participants": [{
+            "name": "Mari Carmen",
+            "surname": "Fernández Borrajo"
+        }, {
+            "name": "Alberto",
+            "surname": "Martínez Fernández"
+        }, {
+            "name": "Javier",
+            "surname": "Martínez Fernández"
+        }]
+    }]
+}
