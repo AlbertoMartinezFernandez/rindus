@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HGs-8t-DSS">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Events-->
+        <scene sceneID="CFb-69-jF4">
+            <objects>
+                <navigationController id="HGs-8t-DSS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Events" image="first" id="9a2-ZZ-rbT"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NQy-az-E3e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.82572146304719529" green="0.96848052740097046" blue="0.37059062047012337" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ASH-n2-UWB" kind="relationship" relationship="rootViewController" id="W1i-Fd-nr8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d9S-kS-P2Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-786" y="85"/>
+        </scene>
+        <!--Events View Controller-->
+        <scene sceneID="lM6-KV-hAj">
+            <objects>
+                <viewController id="ASH-n2-UWB" customClass="EventsViewController" customModule="Task" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ATA-5b-10R">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Vdh-MY-hju">
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Vdh-MY-hju" firstAttribute="bottom" secondItem="QUa-oa-rmU" secondAttribute="bottom" id="48b-fZ-xoZ"/>
+                            <constraint firstItem="Vdh-MY-hju" firstAttribute="trailing" secondItem="QUa-oa-rmU" secondAttribute="trailing" id="INR-zs-mwX"/>
+                            <constraint firstItem="Vdh-MY-hju" firstAttribute="leading" secondItem="QUa-oa-rmU" secondAttribute="leading" id="OuS-g8-Oce"/>
+                            <constraint firstItem="Vdh-MY-hju" firstAttribute="top" secondItem="QUa-oa-rmU" secondAttribute="top" id="sBg-gi-jOe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QUa-oa-rmU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KAk-uM-UXj"/>
+                    <connections>
+                        <outlet property="tableEvents" destination="Vdh-MY-hju" id="UYx-By-W3O"/>
+                        <segue destination="B1m-b7-aiG" kind="show" id="yR9-Ge-EKp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jSd-9e-Inw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="67.5" y="84.507042253521121"/>
+        </scene>
+        <!--Event Detail View Controller-->
+        <scene sceneID="ThI-50-hWI">
+            <objects>
+                <viewController restorationIdentifier="EventDetailViewController" storyboardIdentifier="EventDetailViewController" id="B1m-b7-aiG" customClass="EventDetailViewController" customModule="Task" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LQq-7m-LqL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gn0-Tl-db6">
+                                <rect key="frame" x="16" y="453" width="288" height="50"/>
+                                <color key="backgroundColor" red="0.82572146300000004" green="0.96848052740000001" blue="0.37059062050000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hhZ-W8-7Ni"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <state key="normal" title="OPTIONS">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickOptions:" destination="B1m-b7-aiG" eventType="touchUpInside" id="Czk-3F-wcL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gn0-Tl-db6" firstAttribute="leading" secondItem="H64-2R-LDv" secondAttribute="leading" constant="16" id="XFf-fL-7ic"/>
+                            <constraint firstItem="H64-2R-LDv" firstAttribute="trailing" secondItem="gn0-Tl-db6" secondAttribute="trailing" constant="16" id="XOU-b0-l5v"/>
+                            <constraint firstItem="gn0-Tl-db6" firstAttribute="bottom" secondItem="H64-2R-LDv" secondAttribute="bottom" constant="-16" id="XSt-6k-Ehd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="H64-2R-LDv"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fiq-YY-FkV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lD8-Ei-dTv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="806.25" y="82.394366197183103"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="first" width="30" height="30"/>
+    </resources>
+</document>

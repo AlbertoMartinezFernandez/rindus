@@ -1,0 +1,53 @@
+/* 
+  english.strings
+  Task
+
+  Created by Alberto Martínez Fernández on 29/02/2020.
+  Copyright © 2020 Alberto Martínez Fernández. All rights reserved.
+*/
+
+/* General */
+"info" = "Info";
+"ok" = "Ok";
+"cancel" = "Cancel";
+
+/* TabBar */
+"tabbar_events_title" = "Events";
+"tabbar_menus_title" = "Menus";
+
+/* Events */
+"event_trainings" = "TRAININGS";
+"event_doctor_appointments" = "DOCTOR APPOINTMENTS";
+"event_activities" = "ACTIVITIES";
+"event_outings" = "OUTINGS";
+
+/* Detail event */
+"event_option_title" = "Options";
+"event_option_subtitle" = "Please Select an Option";
+"event_option_save" = "Save";
+"event_option_delete" = "Delete";
+"event_option_confirm_delete_title" = "Delete?";
+"event_option_confirm_delete_message" = "Are you sure you want to delete this event?";
+"event_option_save_success" = "Event successfully saved!";
+"event_option_delete_success" = "Event successfully deleted!";
+
+/* Dates */
+"day_of_week_sunday" = "sunday";
+"day_of_week_monday" = "monday";
+"day_of_week_tuesday" = "tuesday";
+"day_of_week_wednesday" = "wednesday";
+"day_of_week_thursday" = "thursday";
+"day_of_week_friday" = "friday";
+"day_of_week_saturday" = "saturday";
+"month_january" = "January";
+"month_february" = "February";
+"month_march" = "March";
+"month_april" = "April";
+"month_may" = "May";
+"month_june" = "June";
+"month_july" = "July";
+"month_august" = "August";
+"month_september" = "September";
+"month_october" = "October";
+"month_november" = "November";
+"month_december" = "December";
