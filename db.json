@@ -1,76 +1,232 @@
 {
-    "trainings": [{
-        "id": "1",
-        "eventType": "training",
-        "description": "Football training",
-        "dateStart": "2020-05-15T07:15:00+0100",
-        "dateEnd": "2020-05-15T09:16:00+0100",
-        "place": "Ciudad Deportiva"
-    }, {
-        "id": "2",
-        "eventType": "training",
-        "description": "Swimming training",
-        "dateStart": "2020-05-27T07:15:00+0100",
-        "dateEnd": "2020-05-27T09:16:00+0100",
-        "place": "Carranque"
-    }],
-    "doctorAppointments": [{
-        "id": "3",
-        "eventType": "doctor",
-        "description": "Pediatrician",
-        "dateStart": "2020-11-30T07:16:30+0100",
-        "dateEnd": "2020-11-30T09:17:30+0100",
-        "place": "Hospital Carlos Haya"
-    }, {
-        "id": "4",
-        "eventType": "doctor",
-        "description": "Dentist",
-        "dateStart": "2020-07-29T07:16:30+0100",
-        "dateEnd": "2020-07-29T09:17:30+0100",
-        "place": "Calle Larios"
-    }],
-    "activities": [{
-        "id": "5",
-        "eventType": "activity",
-        "dateStart": "2020-02-28T08:00:00+0100",
-        "dateEnd": "2020-02-28T12:00:00+0100",
-        "description": "Sprint planning",
-        "place": "Office",
-        "participants": [{
-            "name": "Alberto",
-            "surname": "Martínez Fernández"
+    "events": {
+        "trainings": [{
+            "id": "1",
+            "eventType": "training",
+            "description": "Football training",
+            "dateStart": "2020-05-15T07:15:00.000Z",
+            "dateEnd": "2020-05-15T09:16:00.000Z",
+            "place": "Ciudad Deportiva"
         }, {
-            "name": "Javier",
-            "surname": "Martínez Fernández"
-        }]
-    }],
-    "outings": [{
-        "id": "6",
-        "eventType": "outing",
-        "dateStart": "2020-08-06T12:00:00+0100",
-        "dateEnd": "2020-08-06T16:00:00+0100",
-        "description": "Customer Office",
-        "place": "Germany",
-        "participants": [{
-            "name": "Mari Carmen",
-            "surname": "Fernández Borrajo"
-        }]
-    }, {
-        "id": "7",
-        "eventType": "outing",
-        "dateStart": "2020-11-09T12:00:00+0100",
-        "dateEnd": "2020-11-09T16:00:00+0100",
-        "description": "Berlin Zoo",
-        "place": "Germany",
-        "participants": [{
-            "name": "Mari Carmen",
-            "surname": "Fernández Borrajo"
+            "id": "2",
+            "eventType": "training",
+            "description": "Swimming training",
+            "dateStart": "2020-05-27T07:15:00.000Z",
+            "dateEnd": "2020-05-27T09:16:00.000Z",
+            "place": "Carranque"
+        }],
+        "doctorAppointments": [{
+            "id": "3",
+            "eventType": "doctor",
+            "description": "Pediatrician",
+            "dateStart": "2020-11-30T07:16:30.000Z",
+            "dateEnd": "2020-11-30T09:17:30.000Z",
+            "place": "Hospital Carlos Haya"
         }, {
-            "name": "Alberto",
-            "surname": "Martínez Fernández"
+            "id": "4",
+            "eventType": "doctor",
+            "description": "Dentist",
+            "dateStart": "2020-07-29T07:16:30.000Z",
+            "dateEnd": "2020-07-29T09:17:30.000Z",
+            "place": "Calle Larios"
+        }],
+        "activities": [{
+            "id": "5",
+            "eventType": "activity",
+            "dateStart": "2020-02-28T08:00:00.000Z",
+            "dateEnd": "2020-02-28T12:00:00.000Z",
+            "description": "Sprint planning",
+            "place": "Office",
+            "participants": [{
+                "name": "Alberto",
+                "surname": "Martínez Fernández"
+            }, {
+                "name": "Javier",
+                "surname": "Martínez Fernández"
+            }]
+        }],
+        "outings": [{
+            "id": "6",
+            "eventType": "outing",
+            "dateStart": "2020-08-06T12:00:00.000Z",
+            "dateEnd": "2020-08-06T16:00:00.000Z",
+            "description": "Customer Office",
+            "place": "Germany",
+            "participants": [{
+                "name": "Mari Carmen",
+                "surname": "Fernández Borrajo"
+            }]
         }, {
-            "name": "Javier",
-            "surname": "Martínez Fernández"
+            "id": "7",
+            "eventType": "outing",
+            "dateStart": "2020-11-09T12:00:00.000Z",
+            "dateEnd": "2020-11-09T16:00:00.000Z",
+            "description": "Berlin Zoo",
+            "place": "Germany",
+            "participants": [{
+                "name": "Mari Carmen",
+                "surname": "Fernández Borrajo"
+            }, {
+                "name": "Alberto",
+                "surname": "Martínez Fernández"
+            }, {
+                "name": "Javier",
+                "surname": "Martínez Fernández"
+            }]
         }]
-    }]
+    },
+    "menus": [{
+            "date": "2020-03-02",
+            "turn": "Lunch",
+            "salad": "",
+            "first": "Cereals",
+            "second": "Calamari rolls",
+            "others1": "Potatoes",
+            "others2": "Rice",
+            "dessert": "Banana",
+            "dairy": "Yogurt"
+        }, {
+            "date": "2020-03-02",
+            "turn": "Dinner",
+            "salad": "Salad",
+            "first": "Macaroni",
+            "second": "Chop",
+            "others1": "Thick potato soup",
+            "others2": "",
+            "dessert": "Orange",
+            "dairy": "Crème caramel"
+        },
+        {
+            "date": "2020-03-03",
+            "turn": "Lunch",
+            "salad": "",
+            "first": "Pasta salad",
+            "second": "Rice with chicken",
+            "others1": "Potatoes",
+            "others2": "Rice",
+            "dessert": "Fruits",
+            "dairy": "Yogurt"
+        },
+        {
+            "date": "2020-03-03",
+            "turn": "Dinner",
+            "salad": "Salad",
+            "first": "Spanish omelette",
+            "second": "Iberian special cut",
+            "others1": "Thick potato soup",
+            "others2": "",
+            "dessert": "Milk",
+            "dairy": "Crème caramel"
+        },
+        {
+            "date": "2020-03-04",
+            "turn": "Lunch",
+            "salad": "",
+            "first": "Paella",
+            "second": "Rice with Tofú",
+            "others1": "Potatoes",
+            "others2": "Rice",
+            "dessert": "Kiwi",
+            "dairy": "Yogurt"
+        },
+        {
+            "date": "2020-03-04",
+            "turn": "Dinner",
+            "salad": "Salad",
+            "first": ["Caesar salad"],
+            "second": "Cuban style rice",
+            "others1": "Thick potato soup",
+            "others2": "",
+            "dessert": "Orange",
+            "dairy": "Crème caramel"
+        },
+        {
+            "date": "2020-03-05",
+            "turn": "Lunch",
+            "salad": "",
+            "first": "Lentils",
+            "second": "Hake",
+            "others1": "Potatoes",
+            "others2": "Rice",
+            "dessert": "Banana",
+            "dairy": "Yogurt"
+        },
+        {
+            "date": "2020-03-05",
+            "turn": "Dinner",
+            "salad": "Salad",
+            "first": "Pizza",
+            "second": "Cous Cous",
+            "others1": "Thick potato soup",
+            "others2": "",
+            "dessert": "Orange",
+            "dairy": "Crème caramel"
+        },
+        {
+            "date": "2020-03-06",
+            "turn": "Lunch",
+            "salad": "",
+            "first": "Musaka",
+            "second": "Sardines",
+            "others1": "Potatoes",
+            "others2": "Rice",
+            "dessert": "Banana",
+            "dairy": "Yogurt"
+        },
+        {
+            "date": "2020-03-06",
+            "turn": "Dinner",
+            "salad": "Salad",
+            "first": "Caesar salad",
+            "second": "Chicken breast",
+            "others1": "Thick potato soup",
+            "others2": "",
+            "dessert": "Orange",
+            "dairy": "Crème caramel"
+        },
+        {
+            "date": "2020-03-07",
+            "turn": "Lunch",
+            "salad": "",
+            "first": "Seafood casserole",
+            "second": "Fried octopus",
+            "others1": "Potatoes",
+            "others2": "Rice",
+            "dessert": "Banana",
+            "dairy": "Yogurt"
+        },
+        {
+            "date": "2020-03-07",
+            "turn": "Dinner",
+            "salad": "Salad",
+            "first": "Gazpacho",
+            "second": "Soupy rice",
+            "others1": "Taboulé",
+            "others2": "",
+            "dessert": "Orange",
+            "dairy": "Crème caramel"
+        },
+        {
+            "date": "2020-03-08",
+            "turn": "Lunch",
+            "salad": "",
+            "first": "Cannelloni",
+            "second": "Focaccia",
+            "others1": "Potatoes",
+            "others2": "Rice",
+            "dessert": "Banana",
+            "dairy": "Yogurt"
+        },
+        {
+            "date": "2020-03-08",
+            "turn": "Dinner",
+            "salad": "Salad",
+            "first": "Fruit salad",
+            "second": "Sandwich",
+            "others1": "Taboulé",
+            "others2": "",
+            "dessert": "Orange",
+            "dairy": "Crème caramel"
+        }
+    ]
 }
