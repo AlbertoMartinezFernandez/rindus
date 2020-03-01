@@ -133,7 +133,7 @@
             "date": "2020-03-04",
             "turn": "Dinner",
             "salad": "Salad",
-            "first": ["Caesar salad"],
+            "first": "Caesar salad",
             "second": "Cuban style rice",
             "others1": "Thick potato soup",
             "others2": "",
