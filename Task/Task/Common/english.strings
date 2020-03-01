@@ -57,3 +57,5 @@
 "menu_first_title" = "First:";
 "menu_second_titile" = "Second:";
 "menu_dessert_title" = "Dessert:";
+"menu_new_invalid_parameters" = "One or more of the following parameters are in a wrong format or incomplete:\n\nDate with yyyy-MM-dd format\nTurn\nFirst\nSecond\nDessert";
+"menu_new_created_success" = "New menu created successfully!";

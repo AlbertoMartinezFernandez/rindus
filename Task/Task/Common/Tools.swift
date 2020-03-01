@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alberto Martínez Fernández. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Tools {
     static let dateFormatYearMonthDay = "yyyy-MM-dd"
@@ -114,5 +114,15 @@ class Tools {
         }
         
         return monthString!
+    }
+    
+    static func createLabelForNavigationBar(frame: CGRect, font: UIFont, color: UIColor, text: String) -> UILabel {
+        let label = UILabel(frame: frame)
+        label.font = font
+        label.textColor = color
+        label.textAlignment = .center
+        label.text = text
+        
+        return label
     }
 }

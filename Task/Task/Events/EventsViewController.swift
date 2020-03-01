@@ -42,6 +42,7 @@ class EventsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.setupView()
+        configureNavigationTitle(title: Language.localizedString(string: "tabbar_events_title"))
     }
     
     override func viewWillAppear(_ animated: Bool) {

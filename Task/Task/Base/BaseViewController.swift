@@ -9,6 +9,7 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    
     // MARK: Setup
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -22,6 +23,14 @@ class BaseViewController: UIViewController {
     }
     
     internal func setupScene() {}
+    
+    func configureNavigationTitle(title: String) {
+        if let navigationBar = self.navigationController?.navigationBar {
+            let firstFrame = CGRect(x: 0, y: navigationBar.frame.height/2 - CGFloat(13), width: navigationBar.frame.width, height: navigationBar.frame.height/2)
+            let labelNavigationBar = Tools.createLabelForNavigationBar(frame: firstFrame, font: UIFont.boldSystemFont(ofSize: CGFloat(13)), color: UIColor.black, text: title)
+            navigationBar.addSubview(labelNavigationBar)
+        }
+    }
     
     // MARK: User Interaction
     

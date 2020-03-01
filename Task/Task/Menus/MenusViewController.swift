@@ -39,6 +39,7 @@ class MenusViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.setupView()
+        configureNavigationTitle(title: Language.localizedString(string: "tabbar_menus_title"))
     }
     
     override func viewWillAppear(_ animated: Bool) {

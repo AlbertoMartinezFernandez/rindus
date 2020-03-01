@@ -10,6 +10,7 @@ import Foundation
 
 protocol MenuNewDisplayLogic: class {
     func setupView()
+    func showAlert(title: String, message: String)
 }
 
 protocol MenuNewDataStore {
@@ -25,15 +26,37 @@ class MenuNewPresenter: MenuNewPresenterLogic, MenuNewDataStore {
     
     // MARK: - Calls to Server
     
-    func callToPostNewMenu() {
-        callToPostNewMenu { menus in
+    private func areValidParameters(parameters: [String]) -> Bool {
+        var areValid = false
+        
+        areValid = isValidDateFormat(stringDate: parameters[0]) && parameters[1] != "" && parameters[3] != "" && parameters[4] != "" && parameters[7] != ""
+        
+        return areValid
+    }
+    
+    private func isValidDateFormat(stringDate: String) -> Bool {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+
+        return dateFormatterGet.date(from: stringDate) != nil
+    }
+    
+    func callToPostNewMenu(parameters: [String]) {
+        if areValidParameters(parameters: parameters) {
+            callToPostNewMenu (parameters: parameters, completion: { responseString in
+                print(responseString)
+                self.view?.showAlert(title: Language.localizedString( string: "info" ), message: Language.localizedString( string: "menu_new_created_success" ))
+            })
+        } else {
+            view?.showAlert(title: Language.localizedString( string: "info" ), message: Language.localizedString( string: "menu_new_invalid_parameters" ))
         }
     }
     
-    func callToPostNewMenu(completion: @escaping (String) -> ()) {
+    func callToPostNewMenu(parameters: [String], completion: @escaping (String) -> ()) {
         let urlString = AppConstants.baseUrl + AppConstants.resourceMenus
         if let url = URL(string: urlString) {
-            let dataToUpload = "id=15?date=2020-03-09&turn=Lunch&salad=Caesar salad&first=Cannelloni&second=Focaccia&others1=Potatoes&others2=Rice&dessert=Banana&dairy=Yogurt".data(using: .utf8)
+            let stringToUpload = getStringParameters(parameters: parameters)
+            let dataToUpload = stringToUpload.data(using: .utf8)
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -51,5 +74,11 @@ class MenuNewPresenter: MenuNewPresenterLogic, MenuNewDataStore {
             })
             dataTask.resume()
         }
+    }
+    
+    private func getStringParameters(parameters: [String]) -> String {
+        let dataToUpload = "id=15&date=\(parameters[0])&turn=\(parameters[1])&salad=\(parameters[2])&first=\(parameters[3])&second=\(parameters[4])&others1=\(parameters[5])&others2=\(parameters[6])&dessert=\(parameters[7])&dairy=\(parameters[8])"
+        
+        return dataToUpload
     }
 }
