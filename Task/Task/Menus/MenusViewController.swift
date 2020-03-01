@@ -14,6 +14,7 @@ protocol MenusPresenterLogic {
     func getRowHeight() -> CGFloat
     func getNumberOfRows() -> Int
     func getMenuModel(indexPath: IndexPath) -> MenuTableViewModel?
+    func manageNewMenuButton()
 }
 
 class MenusViewController: BaseViewController {
@@ -44,6 +45,12 @@ class MenusViewController: BaseViewController {
         super.viewWillAppear(animated)
         presenter?.callToGetMenus()
     }
+    
+    @IBAction func onClickNewMenu(_ sender: UIButton) {
+        print("New Menu button pressed")
+        presenter?.manageNewMenuButton()
+    }
+    
 }
 
 // MARK: - Display Logic
@@ -88,7 +95,7 @@ extension MenusViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - Router Logic
 
 protocol MenusRouterLogic: class {
-
+    func navigateToMenuNew()
 }
 
 protocol MenusDataPass {
@@ -96,6 +103,13 @@ protocol MenusDataPass {
 }
 
 extension MenusViewController: MenusRouterLogic, MenusDataPass {
+    
+    func navigateToMenuNew() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Menus", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "MenuNewViewController") as? MenuNewViewController {
+            self.navigationController?.show(vc, sender: nil)
+        }
+    }
     
     // MARK: Passing data
     

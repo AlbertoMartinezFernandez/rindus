@@ -72,7 +72,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hhZ-W8-7Ni"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                 <state key="normal" title="OPTIONS">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

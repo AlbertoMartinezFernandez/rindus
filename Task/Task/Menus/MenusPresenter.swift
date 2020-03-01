@@ -60,14 +60,16 @@ class MenusPresenter: MenusPresenterLogic, MenusDataStore {
         return menuModel
     }
     
+    func manageNewMenuButton() {
+        view?.navigateToMenuNew()
+    }
+    
     // MARK: - Calls to Server
     
     func callToGetMenus() {
         callToGetMenus { menus in
             print(menus)
             self.menusList = menus
-//            self.sectionTitles.removeAll()
-//            self.initSectionTitles()
             self.view?.reloadData()
         }
     }

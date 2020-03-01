@@ -126,14 +126,14 @@ protocol EventsDataPass {
 
 extension EventsViewController: EventsRouterLogic, EventsDataPass {
     
-    // MARK: Passing data
-    
     func navigateToEventDetail() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Events", bundle: nil)
-        if let registerStep2VC = storyboard.instantiateViewController(withIdentifier: "EventDetailViewController") as? EventDetailViewController {
-            self.navigationController?.show(registerStep2VC, sender: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "EventDetailViewController") as? EventDetailViewController {
+            self.navigationController?.show(vc, sender: nil)
         }
     }
+    
+    // MARK: Passing data
     
     //func passDataToSomewhere(source: EventsDataStore?, destination: inout SomewhereDataStore?)
     //{
