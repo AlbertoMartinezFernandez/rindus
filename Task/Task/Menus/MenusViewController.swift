@@ -10,9 +10,15 @@ import UIKit
 
 protocol MenusPresenterLogic {
     func setupView()
+    func callToGetMenus()
+    func getRowHeight() -> CGFloat
+    func getNumberOfRows() -> Int
+    func getMenuModel(indexPath: IndexPath) -> MenuTableViewModel?
 }
 
 class MenusViewController: BaseViewController {
+    @IBOutlet weak var tableMenus: UITableView!
+    
     var presenter: MenusPresenterLogic?
     var dataStore: MenusDataStore?
   
@@ -33,12 +39,49 @@ class MenusViewController: BaseViewController {
         super.viewDidLoad()
         presenter?.setupView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.callToGetMenus()
+    }
 }
 
 // MARK: - Display Logic
 
 extension MenusViewController: MenusDisplayLogic {
     func setupView() {
+        tableMenus.register(UINib(nibName: MenuTableViewCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: MenuTableViewCell.cellIdentifier)
+        tableMenus.delegate = self
+        tableMenus.dataSource = self
+        tableMenus.alwaysBounceVertical = false
+        tableMenus.tableFooterView = UIView(frame: CGRect.zero)
+        tableMenus.sectionFooterHeight = 0.0
+    }
+    
+    func reloadData() {
+        tableMenus.reloadData()
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension MenusViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return presenter?.getRowHeight() ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter?.getNumberOfRows() ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.cellIdentifier) as? MenuTableViewCell, let menuModel = presenter?.getMenuModel(indexPath: indexPath) else {
+            return UITableViewCell()
+        }
+        
+        cell.updateUI(menuModel: menuModel)
+        
+        return cell
     }
 }
 

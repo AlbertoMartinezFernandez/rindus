@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func configLanguage() {
         if !Language.isSet() {
-            _ = Language.setLanguage(locale:Locale.preferredLanguages[0], remember: true)
+            _ = Language.setLanguage(locale: "en-ES", remember: true)
         } else {
             Language.load()
         }

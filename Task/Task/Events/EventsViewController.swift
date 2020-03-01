@@ -58,7 +58,6 @@ extension EventsViewController: EventsDisplayLogic {
         tableEvents.delegate = self
         tableEvents.dataSource = self
         tableEvents.alwaysBounceVertical = false
-//        tableEvents.tableFooterView = UIView()
         tableEvents.tableFooterView = UIView(frame: CGRect.zero)
         tableEvents.sectionFooterHeight = 0.0
     }

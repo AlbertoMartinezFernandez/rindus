@@ -51,3 +51,9 @@
 "month_october" = "October";
 "month_november" = "November";
 "month_december" = "December";
+
+/* Menus */
+"menus_title" = "Menus";
+"menu_first_title" = "First:";
+"menu_second_titile" = "Second:";
+"menu_dessert_title" = "Dessert:";

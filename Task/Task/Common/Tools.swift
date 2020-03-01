@@ -20,7 +20,7 @@ class Tools {
         
         var dateString = ""
         var hourString = ""
-        if (date != nil) {
+        if date != nil {
             dateFormatter.dateFormat = Tools.dateFormatYearMonthDay
             dateString = dateFormatter.string(from: date!)
             

@@ -76,13 +76,13 @@ class EventList: Codable {
 }
 
 struct EventTableViewModel {
-     var month: String
-     var dayMonth: String
-     var hourStart: String
-     var hourEnd: String
-     var dayWeek: String
-     var colorLineSeparator: UIColor
-     var eventType: String
-     var eventTitle: String
-     var eventLocation: String
+    var month: String
+    var dayMonth: String
+    var hourStart: String
+    var hourEnd: String
+    var dayWeek: String
+    var colorLineSeparator: UIColor
+    var eventType: String
+    var eventTitle: String
+    var eventLocation: String
 }

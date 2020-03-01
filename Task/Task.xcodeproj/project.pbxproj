@@ -31,7 +31,8 @@
 		62CC7973240C1D75009CE084 /* EventDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC7970240C1D75009CE084 /* EventDetailPresenter.swift */; };
 		62CC7975240C1D75009CE084 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC7972240C1D75009CE084 /* EventDetailViewController.swift */; };
 		62CC7977240C1DD7009CE084 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC7976240C1DD7009CE084 /* TabBarViewController.swift */; };
-		62CC7979240C1DE9009CE084 /* TabBarControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62CC7978240C1DE9009CE084 /* TabBarControl.storyboard */; };
+		62CC797C240C243B009CE084 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62CC797B240C243B009CE084 /* MenuTableViewCell.xib */; };
+		62CC797E240C244C009CE084 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC797D240C244C009CE084 /* MenuTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +83,8 @@
 		62CC7970240C1D75009CE084 /* EventDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailPresenter.swift; sourceTree = "<group>"; };
 		62CC7972240C1D75009CE084 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		62CC7976240C1DD7009CE084 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		62CC7978240C1DE9009CE084 /* TabBarControl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarControl.storyboard; sourceTree = "<group>"; };
+		62CC797B240C243B009CE084 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		62CC797D240C244C009CE084 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 		62CC794E240C1B5B009CE084 /* Menus */ = {
 			isa = PBXGroup;
 			children = (
+				62CC797A240C2424009CE084 /* View */,
 				62CC795B240C1CC1009CE084 /* MenusPresenter.swift */,
 				62CC795C240C1CC1009CE084 /* MenusModels.swift */,
 				62CC795D240C1CC1009CE084 /* MenusViewController.swift */,
@@ -213,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				62CC7976240C1DD7009CE084 /* TabBarViewController.swift */,
-				62CC7978240C1DE9009CE084 /* TabBarControl.storyboard */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -223,6 +225,15 @@
 			children = (
 				62CC7964240C1CF7009CE084 /* EventTableViewCell.xib */,
 				62CC7966240C1D05009CE084 /* EventTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		62CC797A240C2424009CE084 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				62CC797B240C243B009CE084 /* MenuTableViewCell.xib */,
+				62CC797D240C244C009CE084 /* MenuTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -335,9 +346,9 @@
 				62CC7929240C1AFC009CE084 /* LaunchScreen.storyboard in Resources */,
 				62CC796F240C1D5A009CE084 /* Events.storyboard in Resources */,
 				62CC7962240C1CCD009CE084 /* Menus.storyboard in Resources */,
-				62CC7979240C1DE9009CE084 /* TabBarControl.storyboard in Resources */,
 				62CC795A240C1CA7009CE084 /* english.strings in Resources */,
 				62CC7926240C1AFC009CE084 /* Assets.xcassets in Resources */,
+				62CC797C240C243B009CE084 /* MenuTableViewCell.xib in Resources */,
 				62CC7924240C1AFB009CE084 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,6 +384,7 @@
 				62CC795F240C1CC1009CE084 /* MenusModels.swift in Sources */,
 				62CC7954240C1C70009CE084 /* Language.swift in Sources */,
 				62CC7956240C1C7D009CE084 /* AppConstants.swift in Sources */,
+				62CC797E240C244C009CE084 /* MenuTableViewCell.swift in Sources */,
 				62CC7975240C1D75009CE084 /* EventDetailViewController.swift in Sources */,
 				62CC796C240C1D4D009CE084 /* EventsModels.swift in Sources */,
 				62CC791B240C1AFB009CE084 /* AppDelegate.swift in Sources */,

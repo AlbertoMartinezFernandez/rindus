@@ -17,6 +17,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ssQ-XJ-dtn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.82572146300000004" green="0.96848052740000001" blue="0.37059062050000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <connections>
                         <segue destination="ymZ-Ls-MtI" kind="relationship" relationship="rootViewController" id="bX6-xS-59l"/>
@@ -33,14 +34,28 @@
                     <view key="view" contentMode="scaleToFill" id="fee-E8-qZJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Zxm-Qv-tRf">
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Zxm-Qv-tRf" firstAttribute="top" secondItem="O7D-3z-cEw" secondAttribute="top" id="Mf7-T3-EVn"/>
+                            <constraint firstItem="Zxm-Qv-tRf" firstAttribute="trailing" secondItem="O7D-3z-cEw" secondAttribute="trailing" id="U1I-Pr-Ocb"/>
+                            <constraint firstItem="Zxm-Qv-tRf" firstAttribute="bottom" secondItem="O7D-3z-cEw" secondAttribute="bottom" id="Ydb-6g-IfX"/>
+                            <constraint firstItem="Zxm-Qv-tRf" firstAttribute="leading" secondItem="O7D-3z-cEw" secondAttribute="leading" id="y6X-UO-gED"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="O7D-3z-cEw"/>
                     </view>
                     <navigationItem key="navigationItem" id="bza-YS-oHh"/>
+                    <connections>
+                        <outlet property="tableMenus" destination="Zxm-Qv-tRf" id="PEt-yw-Jbh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csu-u1-x6n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="101" y="60"/>
+            <point key="canvasLocation" x="99.375" y="59.154929577464792"/>
         </scene>
     </scenes>
     <resources>

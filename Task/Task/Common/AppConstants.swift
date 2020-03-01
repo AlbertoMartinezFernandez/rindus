@@ -11,6 +11,7 @@ import Foundation
 class AppConstants {
     static let baseUrl = "https://my-json-server.typicode.com/AlbertoMartinezFernandez/rindus/"
     static let resourceEvents = "events"
+    static let resourceMenus = "menus"
     
     /* IDIOMAS SOPORTADOS */
     static let localeSpanish = "es_ES"

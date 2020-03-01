@@ -75,6 +75,7 @@ class EventsPresenter: EventsPresenterLogic, EventsDataStore {
         }
         
         let (dateStart, hourStart) = Tools.parseDateAndHour(fromString: eventModel?.dateStart ?? "", dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        let (_, hourEnd) = Tools.parseDateAndHour(fromString: eventModel?.dateEnd ?? "", dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
         let dictInfoDate = Tools.getDateInfoFromStringDate(stringDate: dateStart, options: [.weekday, .month, .day, .year])
         let month = dictInfoDate["month"]!
         let dayMonth = dictInfoDate["day"]!
@@ -84,7 +85,7 @@ class EventsPresenter: EventsPresenterLogic, EventsDataStore {
             month: String(Tools.parseMonth(monthNumber: Int(month)!).uppercased().prefix(3)),
             dayMonth: dayMonth,
             hourStart: hourStart,
-            hourEnd: "16:00",
+            hourEnd: hourEnd,
             dayWeek: dayWeek,
             colorLineSeparator: indexPath.section % 2 == 0 ? UIColor.systemBlue : UIColor.systemGray,
             eventType: eventModel?.eventType.uppercased() ?? "",
