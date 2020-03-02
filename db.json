@@ -79,7 +79,7 @@
             "salad": "",
             "first": "Cereals",
             "second": "Calamari rolls",
-            "others1": "Potatoes",
+            "others1": "",
             "others2": "Rice",
             "dessert": "Banana",
             "dairy": "Yogurt"
@@ -135,7 +135,7 @@
             "second": "Cuban style rice",
             "others1": "Thick potato soup",
             "others2": "",
-            "dessert": "Orange",
+            "dessert": "Milk",
             "dairy": "Crème caramel"
         },
         {
@@ -145,7 +145,7 @@
             "first": "Lentils",
             "second": "Hake",
             "others1": "Potatoes",
-            "others2": "Rice",
+            "others2": "",
             "dessert": "Banana",
             "dairy": "Yogurt"
         },
@@ -179,7 +179,7 @@
             "second": "Chicken breast",
             "others1": "Thick potato soup",
             "others2": "",
-            "dessert": "Orange",
+            "dessert": "Milk",
             "dairy": "Crème caramel"
         },
         {
@@ -211,7 +211,7 @@
             "first": "Cannelloni",
             "second": "Focaccia",
             "others1": "Potatoes",
-            "others2": "Rice",
+            "others2": "",
             "dessert": "Banana",
             "dairy": "Yogurt"
         },
@@ -223,7 +223,7 @@
             "second": "Sandwich",
             "others1": "Taboulé",
             "others2": "",
-            "dessert": "Orange",
+            "dessert": "Milk",
             "dairy": "Crème caramel"
         }
     ]
