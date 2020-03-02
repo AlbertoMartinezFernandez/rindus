@@ -15,6 +15,7 @@ protocol EventsDisplayLogic: class {
 
 protocol EventsDataStore {
     var eventsList: EventList? { get set }
+    var eventSelected: BaseEvent? { get set }
 }
 
 class EventsPresenter: EventsPresenterLogic, EventsDataStore {
@@ -22,9 +23,14 @@ class EventsPresenter: EventsPresenterLogic, EventsDataStore {
     /* Vars */
     weak var view: (EventsDisplayLogic & EventsRouterLogic)?
     var sectionTitles: [String] = []
+    var trainings: [BaseEvent] = []
+    var doctorAppointments: [BaseEvent] = []
+    var activities: [EventWithParticipants] = []
+    var outings: [EventWithParticipants] = []
     
     /* DataStore */
     var eventsList: EventList?
+    var eventSelected: BaseEvent?
 
     func setupView() {
         view?.setupView()
@@ -63,19 +69,9 @@ class EventsPresenter: EventsPresenterLogic, EventsDataStore {
     }
     
     func getEventTableViewModel(indexPath: IndexPath) -> EventTableViewModel? {
-        guard let events = eventsList else { return nil }
-        
-        var eventModel: BaseEvent?
-        switch indexPath.section {
-        case 0: eventModel = events.trainings[indexPath.row]
-        case 1: eventModel = events.doctorAppointments[indexPath.row]
-        case 2: eventModel = events.activities[indexPath.row]
-        case 3: eventModel = events.outings[indexPath.row]
-        default: break
-        }
-        
-        let (dateStart, hourStart) = Tools.parseDateAndHour(fromString: eventModel?.dateStart ?? "", dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-        let (_, hourEnd) = Tools.parseDateAndHour(fromString: eventModel?.dateEnd ?? "", dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        let eventModel = getEvent(indexPath: indexPath)
+        let (dateStart, hourStart) = Tools.parseDateAndHour(fromString: eventModel?.dateStart ?? "")
+        let (_, hourEnd) = Tools.parseDateAndHour(fromString: eventModel?.dateEnd ?? "")
         let dictInfoDate = Tools.getDateInfoFromStringDate(stringDate: dateStart, options: [.weekday, .month, .day, .year])
         let month = dictInfoDate["month"]!
         let dayMonth = dictInfoDate["day"]!
@@ -96,7 +92,23 @@ class EventsPresenter: EventsPresenterLogic, EventsDataStore {
         return model
     }
     
+    private func getEvent(indexPath: IndexPath) -> BaseEvent? {
+        guard let events = eventsList else { return nil }
+        
+        var eventModel: BaseEvent?
+        switch indexPath.section {
+        case 0: eventModel = events.trainings[indexPath.row]
+        case 1: eventModel = events.doctorAppointments[indexPath.row]
+        case 2: eventModel = events.activities[indexPath.row]
+        case 3: eventModel = events.outings[indexPath.row]
+        default: break
+        }
+        
+        return eventModel
+    }
+    
     func didSelectRowAt(indexPath: IndexPath) {
+        eventSelected = getEvent(indexPath: indexPath)
         view?.navigateToEventDetail()
     }
     
@@ -118,22 +130,41 @@ class EventsPresenter: EventsPresenterLogic, EventsDataStore {
     }
     
     func callToGetEvents() {
-        callToGetEvents { events in
-            self.eventsList = events
-            self.sectionTitles.removeAll()
-            self.initSectionTitles()
-            self.view?.reloadData()
+        let eventsGroup = CustomDispatchGroup()
+        callToGetBaseEvent(group: eventsGroup, resource: AppConstants.resourceTrainings)
+        callToGetBaseEvent(group: eventsGroup, resource: AppConstants.resourceDoctor)
+        callToGetEventWithParticipants(group: eventsGroup, resource: AppConstants.resourceActivities)
+        callToGetEventWithParticipants(group: eventsGroup, resource: AppConstants.resourceOutings)
+
+        eventsGroup.notify(queue: .main) { [weak self] in
+            self?.eventsList = EventList(trainings: self?.trainings ?? [], doctorAppointments: self?.doctorAppointments ?? [], activities: self?.activities ?? [], outings: self?.outings ?? [])
+            self?.sectionTitles.removeAll()
+            self?.initSectionTitles()
+            self?.view?.reloadData()
         }
     }
     
-    func callToGetEvents(completion: @escaping (EventList) -> ()) {
-        let urlString = AppConstants.baseUrl + AppConstants.resourceEvents
+    private func callToGetBaseEvent(group: CustomDispatchGroup, resource: String) {
+        group.enter()
+        callToGetBaseEvent(resource: resource, completion: { baseEvents in
+            switch resource {
+            case AppConstants.resourceTrainings: self.trainings = baseEvents
+            case AppConstants.resourceDoctor: self.doctorAppointments = baseEvents
+            default: break
+            }
+            print(baseEvents)
+            group.leave()
+        })
+    }
+    
+    private func callToGetBaseEvent(resource: String, completion: @escaping ([BaseEvent]) -> ()) {
+        let urlString = AppConstants.baseUrl + resource
         if let url = URL(string: urlString) {
             URLSession.shared.dataTask(with: url) { data, res, err in
                 DispatchQueue.main.async {
                     if let data = data {
                         let decoder = JSONDecoder()
-                        if let json = try? decoder.decode(EventList.self, from: data) {
+                        if let json = try? decoder.decode([BaseEvent].self, from: data) {
                             completion(json)
                         }
                     }
@@ -142,7 +173,39 @@ class EventsPresenter: EventsPresenterLogic, EventsDataStore {
                         print(error.localizedDescription)
                     }
                 }
-                
+            }.resume()
+        }
+    }
+    
+    private func callToGetEventWithParticipants(group: CustomDispatchGroup, resource: String) {
+        group.enter()
+        callToGetEventWithParticipants(resource: resource, completion: { eventsWithParticipants in
+            switch resource {
+            case AppConstants.resourceActivities: self.activities = eventsWithParticipants
+            case AppConstants.resourceOutings: self.outings = eventsWithParticipants
+            default: break
+            }
+            print(eventsWithParticipants)
+            group.leave()
+        })
+    }
+    
+    private func callToGetEventWithParticipants(resource: String, completion: @escaping ([EventWithParticipants]) -> ()) {
+        let urlString = AppConstants.baseUrl + resource
+        if let url = URL(string: urlString) {
+            URLSession.shared.dataTask(with: url) { data, res, err in
+                DispatchQueue.main.async {
+                    if let data = data {
+                        let decoder = JSONDecoder()
+                        if let json = try? decoder.decode([EventWithParticipants].self, from: data) {
+                            completion(json)
+                        }
+                    }
+                    
+                    if let error = err {
+                        print(error.localizedDescription)
+                    }
+                }
             }.resume()
         }
     }

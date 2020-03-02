@@ -130,14 +130,8 @@ extension EventsViewController: EventsRouterLogic, EventsDataPass {
     func navigateToEventDetail() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Events", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "EventDetailViewController") as? EventDetailViewController {
+            vc.dataStore?.eventSelected = dataStore?.eventSelected
             self.navigationController?.show(vc, sender: nil)
         }
     }
-    
-    // MARK: Passing data
-    
-    //func passDataToSomewhere(source: EventsDataStore?, destination: inout SomewhereDataStore?)
-    //{
-    //  destination?.name = source?.name
-    //}
 }

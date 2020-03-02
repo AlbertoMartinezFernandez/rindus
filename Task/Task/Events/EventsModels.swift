@@ -8,12 +8,12 @@
 
 import UIKit
 
-//enum EventType: String {
-//    case training
-//    case doctor
-//    case activity
-//    case outing
-//}
+enum EventType: String {
+    case training
+    case doctor
+    case activity
+    case outing
+}
 
 struct Participant: Codable {
     let name: String
@@ -34,13 +34,7 @@ class BaseEvent: Codable {
     let place: String
 }
 
-class Training: BaseEvent {
-}
-
-class DoctorAppointment: BaseEvent {
-}
-
-class Activity: BaseEvent {
+class EventWithParticipants: BaseEvent {
     let participants: [Participant]
     
     private enum CodingKeys: String, CodingKey {
@@ -54,25 +48,11 @@ class Activity: BaseEvent {
     }
 }
 
-class Outing: BaseEvent {
-    let participants: [Participant]
-    
-    private enum CodingKeys: String, CodingKey {
-        case participants
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        participants = try container.decode([Participant].self, forKey: .participants)
-        try super.init(from: decoder)
-    }
-}
-
-class EventList: Codable {
-    let trainings: [Training]
-    let doctorAppointments: [DoctorAppointment]
-    let activities: [Activity]
-    let outings: [Outing]
+struct EventList {
+    let trainings: [BaseEvent]
+    let doctorAppointments: [BaseEvent]
+    let activities: [EventWithParticipants]
+    let outings: [EventWithParticipants]
 }
 
 struct EventTableViewModel {
@@ -85,4 +65,15 @@ struct EventTableViewModel {
     var eventType: String
     var eventTitle: String
     var eventLocation: String
+}
+
+struct EventDetailTableViewModel {
+    var eventType: String
+    var dateStart: String
+    var dateEnd: String
+    var eventTitle: String
+    var eventPlace: String
+    var participant1: String
+    var participant2: String
+    var participant3: String
 }

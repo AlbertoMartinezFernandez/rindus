@@ -91,11 +91,4 @@ protocol MenuNewDataPass {
 }
 
 extension MenuNewViewController: MenuNewRouterLogic, MenuNewDataPass {
-    
-    // MARK: Passing data
-    
-    //func passDataToSomewhere(source: MenuNewDataStore?, destination: inout SomewhereDataStore?)
-    //{
-    //  destination?.name = source?.name
-    //}
 }

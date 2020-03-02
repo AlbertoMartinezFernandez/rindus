@@ -10,11 +10,27 @@ import UIKit
 
 protocol EventDetailPresenterLogic {
     func setupView()
-    func callToPutEvent()
+    func callToPutEvent(parameters: [String])
     func callToDeleteEvent()
 }
 
 class EventDetailViewController: BaseViewController {
+    
+    @IBOutlet weak var labelEventTypeTitle: UILabel!
+    @IBOutlet weak var labelEventTypeValue: UILabel!
+    @IBOutlet weak var labelDateStart: UILabel!
+    @IBOutlet weak var textfieldDateStart: UITextField!
+    @IBOutlet weak var labelDateEnd: UILabel!
+    @IBOutlet weak var textfieldDateEnd: UITextField!
+    @IBOutlet weak var labelTitleEvent: UILabel!
+    @IBOutlet weak var textfieldTitleEvent: UITextField!
+    @IBOutlet weak var labelPlace: UILabel!
+    @IBOutlet weak var textfieldPlace: UITextField!
+    @IBOutlet weak var labelParticipants: UILabel!
+    @IBOutlet weak var textfieldParticipant1: UITextField!
+    @IBOutlet weak var textfieldParticipant2: UITextField!
+    @IBOutlet weak var textfieldParticipant3: UITextField!
+    
     var presenter: EventDetailPresenterLogic?
     var dataStore: EventDetailDataStore?
   
@@ -46,7 +62,17 @@ class EventDetailViewController: BaseViewController {
 
         alert.addAction(UIAlertAction(title: Language.localizedString( string: "event_option_save" ), style: .default, handler: { (_) in
             print("User click Save button")
-            self.presenter?.callToPutEvent()
+            
+            if let eventType = self.labelEventTypeValue.text?.lowercased(),
+                let dateStart = self.textfieldDateStart.text,
+                let dateEnd = self.textfieldDateEnd.text,
+                let titleEvent = self.textfieldTitleEvent.text,
+                let place = self.textfieldPlace.text {
+                
+                let arrayParams = [titleEvent, place, dateStart, dateEnd, eventType]
+                
+                self.presenter?.callToPutEvent(parameters: arrayParams)
+            }
         }))
 
         alert.addAction(UIAlertAction(title: Language.localizedString( string: "event_option_delete" ), style: .destructive, handler: { (_) in
@@ -79,7 +105,20 @@ class EventDetailViewController: BaseViewController {
 // MARK: - Display Logic
 
 extension EventDetailViewController: EventDetailDisplayLogic {
-    func setupView() {
+    func setupView(eventModel: EventDetailTableViewModel) {
+        labelEventTypeValue.text = eventModel.eventType
+        textfieldDateStart.text = eventModel.dateStart
+        textfieldDateEnd.text = eventModel.dateEnd
+        textfieldTitleEvent.text = eventModel.eventTitle
+        textfieldPlace.text = eventModel.eventPlace
+        let isParticipantsVisible = eventModel.eventType.lowercased() == EventType.activity.rawValue || eventModel.eventType.lowercased() == EventType.outing.rawValue
+        labelParticipants.isHidden = !isParticipantsVisible
+        textfieldParticipant1.isHidden = !isParticipantsVisible
+        textfieldParticipant2.isHidden = !isParticipantsVisible
+        textfieldParticipant3.isHidden = !isParticipantsVisible
+        textfieldParticipant1.text = eventModel.participant1
+        textfieldParticipant2.text = eventModel.participant2
+        textfieldParticipant3.text = eventModel.participant3
     }
 }
 
@@ -94,11 +133,4 @@ protocol EventDetailDataPass {
 }
 
 extension EventDetailViewController: EventDetailRouterLogic, EventDetailDataPass {
-    
-    // MARK: Passing data
-    
-    //func passDataToSomewhere(source: EventDetailDataStore?, destination: inout SomewhereDataStore?)
-    //{
-    //  destination?.name = source?.name
-    //}
 }

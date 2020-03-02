@@ -111,11 +111,4 @@ extension MenusViewController: MenusRouterLogic, MenusDataPass {
             self.navigationController?.show(vc, sender: nil)
         }
     }
-    
-    // MARK: Passing data
-    
-    //func passDataToSomewhere(source: MensuDataStore?, destination: inout SomewhereDataStore?)
-    //{
-    //  destination?.name = source?.name
-    //}
 }

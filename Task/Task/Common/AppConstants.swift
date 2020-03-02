@@ -10,7 +10,10 @@ import Foundation
 
 class AppConstants {
     static let baseUrl = "https://my-json-server.typicode.com/AlbertoMartinezFernandez/rindus/"
-    static let resourceEvents = "events"
+    static let resourceTrainings = "trainings"
+    static let resourceDoctor = "doctorAppointments"
+    static let resourceActivities = "activities"
+    static let resourceOutings = "outings"
     static let resourceMenus = "menus"
     
     /* IDIOMAS SOPORTADOS */

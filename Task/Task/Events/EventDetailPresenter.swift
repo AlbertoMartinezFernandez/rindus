@@ -9,28 +9,49 @@
 import Foundation
 
 protocol EventDetailDisplayLogic: class {
-    func setupView()
+    func setupView(eventModel: EventDetailTableViewModel)
     func showAlert(title: String, message: String)
 }
 
 protocol EventDetailDataStore {
-//    var name: String? { get set }
+    var eventSelected: BaseEvent? { get set }
 }
 
 class EventDetailPresenter: EventDetailPresenterLogic, EventDetailDataStore {
+    
+    /* Vars */
     weak var view: (EventDetailDisplayLogic & EventDetailRouterLogic)?
+    
+    /* DataStore */
+    var eventSelected: BaseEvent?
 
     func setupView() {
-        view?.setupView()
+        var participants: [Participant] = []
+        if let event = eventSelected {
+            if event is EventWithParticipants { participants = (event as? EventWithParticipants)?.participants ?? [] }
+        }
+        let (dateStart, hourStart) = Tools.parseDateAndHour(fromString: eventSelected?.dateStart ?? "")
+        let (dateEnd, hourEnd) = Tools.parseDateAndHour(fromString: eventSelected?.dateEnd ?? "")
+        let eventModel = EventDetailTableViewModel(
+            eventType: eventSelected?.eventType.uppercased() ?? "",
+            dateStart: dateStart + " " + hourStart,
+            dateEnd: dateEnd + " " + hourEnd,
+            eventTitle: eventSelected?.description ?? "",
+            eventPlace: eventSelected?.place ?? "",
+            participant1: participants.count > 0 ? participants[0].name + " " + participants[0].surname : "",
+            participant2: participants.count > 1 ? participants[1].name + " " + participants[1].surname : "",
+            participant3: participants.count > 2 ? participants[2].name + " " + participants[2].surname : ""
+        )
+        view?.setupView(eventModel: eventModel)
     }
     
     // MARK: - Calls to server
     
-    func callToPutEvent() {
-        callToPutEvent { jsonString in
+    func callToPutEvent(parameters: [String]) {
+        callToPutEvent(parameters: parameters, completion: { jsonString in
             print(jsonString)
             self.view?.showAlert(title: Language.localizedString( string: "info" ), message: Language.localizedString( string: "event_option_save_success" ))
-        }
+        })
     }
     
     func callToDeleteEvent() {
@@ -40,10 +61,11 @@ class EventDetailPresenter: EventDetailPresenterLogic, EventDetailDataStore {
         }
     }
     
-    func callToPutEvent(completion: @escaping (String) -> ()) {
+    func callToPutEvent(parameters: [String], completion: @escaping (String) -> ()) {
         let urlString = AppConstants.baseUrl + "trainings/1"
         if let url = URL(string: urlString) {
-            let dataToUpload = "description=Baloncesto&place=CiudadJardin&dateStart=2020-05-15T07:15:00+0100&dateEnd=2020-05-15T09:17:00+0100&eventType=training".data(using: .utf8)
+            let stringToUpload = getStringParameters(parameters: parameters)
+            let dataToUpload = stringToUpload.data(using: .utf8)
             var request = URLRequest(url: url)
             request.httpMethod = "PUT"
             request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -61,6 +83,12 @@ class EventDetailPresenter: EventDetailPresenterLogic, EventDetailDataStore {
             })
             dataTask.resume()
         }
+    }
+    
+    private func getStringParameters(parameters: [String]) -> String {
+        let dataToUpload = "description=\(parameters[0])&place=\(parameters[1])&dateStart=\(parameters[2])&dateEnd=\(parameters[3])&eventType=\(parameters[4])"
+        
+        return dataToUpload
     }
     
     func callToDeleteEvent(completion: @escaping (String) -> ()) {

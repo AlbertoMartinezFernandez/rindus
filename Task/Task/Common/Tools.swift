@@ -9,22 +9,23 @@
 import UIKit
 
 class Tools {
+    static let dateHourFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
     static let dateFormatYearMonthDay = "yyyy-MM-dd"
     static let dateFormatHourMinute = "HH:mm"
     
-    static func parseDateAndHour(fromString: String, dateFormat: String) -> (String, String) {
+    static func parseDateAndHour(fromString: String) -> (String, String) {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Calendar.current.locale
-        dateFormatter.dateFormat = dateFormat
+        dateFormatter.dateFormat = dateHourFormat
         let date = dateFormatter.date(from: fromString)
         
         var dateString = ""
         var hourString = ""
         if date != nil {
-            dateFormatter.dateFormat = Tools.dateFormatYearMonthDay
+            dateFormatter.dateFormat = dateFormatYearMonthDay
             dateString = dateFormatter.string(from: date!)
             
-            dateFormatter.dateFormat = Tools.dateFormatHourMinute
+            dateFormatter.dateFormat = dateFormatHourMinute
             hourString = dateFormatter.string(from: date!)
         }
         

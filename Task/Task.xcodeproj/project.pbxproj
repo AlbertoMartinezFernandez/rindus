@@ -35,6 +35,7 @@
 		62CC797E240C244C009CE084 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC797D240C244C009CE084 /* MenuTableViewCell.swift */; };
 		62CC7982240C549E009CE084 /* MenuNewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC797F240C549E009CE084 /* MenuNewPresenter.swift */; };
 		62CC7984240C549E009CE084 /* MenuNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC7981240C549E009CE084 /* MenuNewViewController.swift */; };
+		62CC7986240C9B9F009CE084 /* CustomDispatchGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC7985240C9B9F009CE084 /* CustomDispatchGroup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		62CC797D240C244C009CE084 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		62CC797F240C549E009CE084 /* MenuNewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNewPresenter.swift; sourceTree = "<group>"; };
 		62CC7981240C549E009CE084 /* MenuNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNewViewController.swift; sourceTree = "<group>"; };
+		62CC7985240C9B9F009CE084 /* CustomDispatchGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDispatchGroup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				62CC7955240C1C7D009CE084 /* AppConstants.swift */,
 				62CC7957240C1C8A009CE084 /* Tools.swift */,
 				62CC7959240C1CA7009CE084 /* english.strings */,
+				62CC7985240C9B9F009CE084 /* CustomDispatchGroup.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				62CC7975240C1D75009CE084 /* EventDetailViewController.swift in Sources */,
 				62CC796C240C1D4D009CE084 /* EventsModels.swift in Sources */,
 				62CC791B240C1AFB009CE084 /* AppDelegate.swift in Sources */,
+				62CC7986240C9B9F009CE084 /* CustomDispatchGroup.swift in Sources */,
 				62CC7984240C549E009CE084 /* MenuNewViewController.swift in Sources */,
 				62CC7958240C1C8A009CE084 /* Tools.swift in Sources */,
 				62CC796D240C1D4D009CE084 /* EventsViewController.swift in Sources */,
