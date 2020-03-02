@@ -33,8 +33,8 @@
 		62CC7977240C1DD7009CE084 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC7976240C1DD7009CE084 /* TabBarViewController.swift */; };
 		62CC797C240C243B009CE084 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62CC797B240C243B009CE084 /* MenuTableViewCell.xib */; };
 		62CC797E240C244C009CE084 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC797D240C244C009CE084 /* MenuTableViewCell.swift */; };
-		62CC7982240C549E009CE084 /* MenuNewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC797F240C549E009CE084 /* MenuNewPresenter.swift */; };
-		62CC7984240C549E009CE084 /* MenuNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC7981240C549E009CE084 /* MenuNewViewController.swift */; };
+		62CC7982240C549E009CE084 /* MenuDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC797F240C549E009CE084 /* MenuDetailPresenter.swift */; };
+		62CC7984240C549E009CE084 /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC7981240C549E009CE084 /* MenuDetailViewController.swift */; };
 		62CC7986240C9B9F009CE084 /* CustomDispatchGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CC7985240C9B9F009CE084 /* CustomDispatchGroup.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,8 +88,8 @@
 		62CC7976240C1DD7009CE084 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		62CC797B240C243B009CE084 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		62CC797D240C244C009CE084 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
-		62CC797F240C549E009CE084 /* MenuNewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNewPresenter.swift; sourceTree = "<group>"; };
-		62CC7981240C549E009CE084 /* MenuNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNewViewController.swift; sourceTree = "<group>"; };
+		62CC797F240C549E009CE084 /* MenuDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailPresenter.swift; sourceTree = "<group>"; };
+		62CC7981240C549E009CE084 /* MenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
 		62CC7985240C9B9F009CE084 /* CustomDispatchGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDispatchGroup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,8 +201,8 @@
 				62CC795C240C1CC1009CE084 /* MenusModels.swift */,
 				62CC795D240C1CC1009CE084 /* MenusViewController.swift */,
 				62CC7961240C1CCD009CE084 /* Menus.storyboard */,
-				62CC797F240C549E009CE084 /* MenuNewPresenter.swift */,
-				62CC7981240C549E009CE084 /* MenuNewViewController.swift */,
+				62CC797F240C549E009CE084 /* MenuDetailPresenter.swift */,
+				62CC7981240C549E009CE084 /* MenuDetailViewController.swift */,
 			);
 			path = Menus;
 			sourceTree = "<group>";
@@ -386,7 +386,7 @@
 				62CC7967240C1D05009CE084 /* EventTableViewCell.swift in Sources */,
 				62CC7952240C1C3E009CE084 /* BaseViewController.swift in Sources */,
 				62CC7973240C1D75009CE084 /* EventDetailPresenter.swift in Sources */,
-				62CC7982240C549E009CE084 /* MenuNewPresenter.swift in Sources */,
+				62CC7982240C549E009CE084 /* MenuDetailPresenter.swift in Sources */,
 				62CC7977240C1DD7009CE084 /* TabBarViewController.swift in Sources */,
 				62CC7960240C1CC1009CE084 /* MenusViewController.swift in Sources */,
 				62CC796B240C1D4D009CE084 /* EventsPresenter.swift in Sources */,
@@ -399,7 +399,7 @@
 				62CC796C240C1D4D009CE084 /* EventsModels.swift in Sources */,
 				62CC791B240C1AFB009CE084 /* AppDelegate.swift in Sources */,
 				62CC7986240C9B9F009CE084 /* CustomDispatchGroup.swift in Sources */,
-				62CC7984240C549E009CE084 /* MenuNewViewController.swift in Sources */,
+				62CC7984240C549E009CE084 /* MenuDetailViewController.swift in Sources */,
 				62CC7958240C1C8A009CE084 /* Tools.swift in Sources */,
 				62CC796D240C1D4D009CE084 /* EventsViewController.swift in Sources */,
 			);

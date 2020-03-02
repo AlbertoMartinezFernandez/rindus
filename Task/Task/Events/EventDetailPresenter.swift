@@ -62,7 +62,9 @@ class EventDetailPresenter: EventDetailPresenterLogic, EventDetailDataStore {
     }
     
     func callToPutEvent(parameters: [String], completion: @escaping (String) -> ()) {
-        let urlString = AppConstants.baseUrl + "trainings/1"
+        let resource = getResourceName()
+        let urlString = AppConstants.baseUrl + resource + "/1"
+        
         if let url = URL(string: urlString) {
             let stringToUpload = getStringParameters(parameters: parameters)
             let dataToUpload = stringToUpload.data(using: .utf8)
@@ -92,11 +94,12 @@ class EventDetailPresenter: EventDetailPresenterLogic, EventDetailDataStore {
     }
     
     func callToDeleteEvent(completion: @escaping (String) -> ()) {
-        let firstTodoEndpoint: String = AppConstants.baseUrl + "trainings/1"
-        var firstTodoUrlRequest = URLRequest(url: URL(string: firstTodoEndpoint)!)
-        firstTodoUrlRequest.httpMethod = "DELETE"
+        let resource = getResourceName()
+        let stringURL: String = AppConstants.baseUrl + resource + "/1"
+        var urlRequest = URLRequest(url: URL(string: stringURL)!)
+        urlRequest.httpMethod = "DELETE"
         
-        let task = URLSession.shared.dataTask(with: firstTodoUrlRequest) { data, response, error in
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             DispatchQueue.main.async {
                 guard let responseData = data else {
                     print("error calling DELETE")
@@ -108,5 +111,18 @@ class EventDetailPresenter: EventDetailPresenterLogic, EventDetailDataStore {
             }
         }
         task.resume()
+    }
+    
+    private func getResourceName() -> String {
+        var resource = ""
+        switch eventSelected?.eventType {
+        case EventType.training.rawValue: resource = AppConstants.resourceTrainings
+        case EventType.doctor.rawValue: resource = AppConstants.resourceDoctor
+        case EventType.activity.rawValue: resource = AppConstants.resourceActivities
+        case EventType.outing.rawValue: resource = AppConstants.resourceOutings
+        default: break
+        }
+        
+        return resource
     }
 }

@@ -59,3 +59,12 @@
 "menu_dessert_title" = "Dessert:";
 "menu_new_invalid_parameters" = "One or more of the following parameters are in a wrong format or incomplete:\n\nDate with yyyy-MM-dd format\nTurn\nFirst\nSecond\nDessert";
 "menu_new_created_success" = "New menu created successfully!";
+"menu_filter_options_title" = "Filter options";
+"menu_filter_options_subtitle" = "Please Select an Option";
+"menu_filter_by_turn_lunch" = "Lunch";
+"menu_filter_by_dessert_banana" = "Dessert: banana";
+"menu_filter_by_combination" = "Others1: Potatoes & Others2: Rice";
+"menu_filter_reset" = "Reset filters";
+"menu_create_button" = "Create";
+"menu_update_button" = "Update";
+"menu_update_success" = "Menu successfully updated!";

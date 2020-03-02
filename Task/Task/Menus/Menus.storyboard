@@ -74,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="99.375" y="59.154929577464792"/>
         </scene>
-        <!--Menu New View Controller-->
+        <!--Menu Detail View Controller-->
         <scene sceneID="4g8-Ji-kFF">
             <objects>
-                <viewController storyboardIdentifier="MenuNewViewController" id="XmU-Jq-JYM" customClass="MenuNewViewController" customModule="Task" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuDetailViewController" id="XmU-Jq-JYM" customClass="MenuDetailViewController" customModule="Task" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NJn-xn-lxj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,7 +178,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="onClickCreateMenu:" destination="XmU-Jq-JYM" eventType="touchUpInside" id="ykp-Xr-m76"/>
+                                    <action selector="onClickModifyMenu:" destination="XmU-Jq-JYM" eventType="touchUpInside" id="xsF-j4-QrT"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select your turn" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t1G-6A-F3u">
@@ -275,6 +275,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ukc-Xq-Mub"/>
                     <connections>
+                        <outlet property="buttonModify" destination="LJY-wn-yId" id="QHW-xo-qnz"/>
                         <outlet property="labelDairy" destination="CoO-2j-1Yj" id="zt6-GO-2oA"/>
                         <outlet property="labelDate" destination="W3N-Au-hoS" id="bSG-A3-U9J"/>
                         <outlet property="labelDessert" destination="Ucl-JP-y3r" id="PNP-4m-0E9"/>

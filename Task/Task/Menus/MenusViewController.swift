@@ -11,10 +11,12 @@ import UIKit
 protocol MenusPresenterLogic {
     func setupView()
     func callToGetMenus()
+    func callToGetMenus(filter: String)
     func getRowHeight() -> CGFloat
     func getNumberOfRows() -> Int
     func getMenuModel(indexPath: IndexPath) -> MenuTableViewModel?
     func manageNewMenuButton()
+    func didSelectRowAt(indexPath: IndexPath)
 }
 
 class MenusViewController: BaseViewController {
@@ -58,6 +60,8 @@ class MenusViewController: BaseViewController {
 
 extension MenusViewController: MenusDisplayLogic {
     func setupView() {
+        self.navigationItem.rightBarButtonItem = initBarButtonItem(iconName: "filter", selector: #selector(onClickFilter))
+        
         tableMenus.register(UINib(nibName: MenuTableViewCell.cellIdentifier, bundle: nil), forCellReuseIdentifier: MenuTableViewCell.cellIdentifier)
         tableMenus.delegate = self
         tableMenus.dataSource = self
@@ -68,6 +72,37 @@ extension MenusViewController: MenusDisplayLogic {
     
     func reloadData() {
         tableMenus.reloadData()
+    }
+    
+    @objc func onClickFilter() {
+        print("onClickFilter selected")
+        showOptionsActionSheet()
+    }
+    
+    private func showOptionsActionSheet() {
+        let alert = UIAlertController(title: Language.localizedString( string: "menu_filter_options_title" ), message: Language.localizedString( string: "menu_filter_options_subtitle" ), preferredStyle: .actionSheet)
+
+        alert.addAction(UIAlertAction(title: Language.localizedString( string: "menu_filter_by_turn_lunch" ), style: .default, handler: { (_) in
+            print("User filter by lunch")
+            self.presenter?.callToGetMenus(filter: "?turn=Lunch")
+        }))
+
+        alert.addAction(UIAlertAction(title: Language.localizedString( string: "menu_filter_by_dessert_banana" ), style: .default, handler: { (_) in
+            print("User filter by dessert banana")
+            self.presenter?.callToGetMenus(filter: "?dessert=Banana")
+        }))
+        
+        alert.addAction(UIAlertAction(title: Language.localizedString( string: "menu_filter_by_combination" ), style: .default, handler: { (_) in
+            print("User filter by a combination")
+            self.presenter?.callToGetMenus(filter: "?others1=Potatoes&others2=Rice")
+        }))
+
+        alert.addAction(UIAlertAction(title: Language.localizedString( string: "menu_filter_reset" ), style: .cancel, handler: { (_) in
+            print("User resets filters")
+            self.presenter?.callToGetMenus()
+        }))
+        
+        self.present(alert, animated: true)
     }
 }
 
@@ -91,12 +126,16 @@ extension MenusViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.didSelectRowAt(indexPath: indexPath)
+    }
 }
 
 // MARK: - Router Logic
 
 protocol MenusRouterLogic: class {
-    func navigateToMenuNew()
+    func navigateToMenuDetail()
 }
 
 protocol MenusDataPass {
@@ -105,9 +144,11 @@ protocol MenusDataPass {
 
 extension MenusViewController: MenusRouterLogic, MenusDataPass {
     
-    func navigateToMenuNew() {
+    func navigateToMenuDetail() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Menus", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "MenuNewViewController") as? MenuNewViewController {
+        if let vc = storyboard.instantiateViewController(withIdentifier: "MenuDetailViewController") as? MenuDetailViewController {
+            vc.dataStore?.menuSelected = dataStore?.menuSelected
+            vc.dataStore?.isEditing = dataStore?.isEditing ?? false
             self.navigationController?.show(vc, sender: nil)
         }
     }

@@ -32,6 +32,13 @@ class BaseViewController: UIViewController {
         }
     }
     
+    func initBarButtonItem(iconName: String, selector:Selector) -> UIBarButtonItem {
+        let button = Tools.createButtonForNavigationBar(iconName: iconName)
+        button.addTarget(self, action:selector, for:.touchUpInside)
+        
+        return UIBarButtonItem.init(customView: button)
+    }
+    
     // MARK: User Interaction
     
     func showAlert(title: String, message: String) {

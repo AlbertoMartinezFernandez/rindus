@@ -126,4 +126,12 @@ class Tools {
         
         return label
     }
+    
+    static func createButtonForNavigationBar(iconName: String) -> UIButton {
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage.init(named: iconName), for: UIControl.State.normal)
+        button.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        
+        return button
+    }
 }

@@ -15,6 +15,8 @@ protocol MenusDisplayLogic: class {
 
 protocol MenusDataStore {
     var menusList: [Menu]? { get set }
+    var menuSelected: Menu? { get set }
+    var isEditing: Bool { get set }
 }
 
 class MenusPresenter: MenusPresenterLogic, MenusDataStore {
@@ -24,6 +26,8 @@ class MenusPresenter: MenusPresenterLogic, MenusDataStore {
     
     /* DataStore */
     var menusList: [Menu]?
+    var menuSelected: Menu?
+    var isEditing: Bool = false
 
     func setupView() {
         view?.setupView()
@@ -61,21 +65,32 @@ class MenusPresenter: MenusPresenterLogic, MenusDataStore {
     }
     
     func manageNewMenuButton() {
-        view?.navigateToMenuNew()
+        isEditing = false
+        view?.navigateToMenuDetail()
+    }
+    
+    func didSelectRowAt(indexPath: IndexPath) {
+        guard let menus = menusList else { return }
+        menuSelected = menus[indexPath.row]
+        isEditing = true
+        view?.navigateToMenuDetail()
     }
     
     // MARK: - Calls to Server
-    
     func callToGetMenus() {
-        callToGetMenus { menus in
+        callToGetMenus(filter: "")
+    }
+    
+    func callToGetMenus(filter: String) {
+        callToGetMenus(filter: filter, completion: { menus in
             print(menus)
             self.menusList = menus
             self.view?.reloadData()
-        }
+        })
     }
     
-    func callToGetMenus(completion: @escaping ([Menu]) -> ()) {
-        let urlString = AppConstants.baseUrl + AppConstants.resourceMenus
+    func callToGetMenus(filter: String, completion: @escaping ([Menu]) -> ()) {
+        let urlString = AppConstants.baseUrl + AppConstants.resourceMenus + filter
         if let url = URL(string: urlString) {
             URLSession.shared.dataTask(with: url) { data, res, err in
                 DispatchQueue.main.async {
