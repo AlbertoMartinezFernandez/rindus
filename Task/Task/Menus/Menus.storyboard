@@ -12,7 +12,7 @@
         <scene sceneID="5rL-Sh-813">
             <objects>
                 <navigationController id="BzT-NB-ydB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Menus" image="second" id="mOG-vv-kf5"/>
+                    <tabBarItem key="tabBarItem" title="Menus" image="iconMenu" selectedImage="iconMenu" id="mOG-vv-kf5"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ssQ-XJ-dtn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -301,6 +301,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="second" width="30" height="30"/>
+        <image name="iconMenu" width="20" height="20"/>
     </resources>
 </document>

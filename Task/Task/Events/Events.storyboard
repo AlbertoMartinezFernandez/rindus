@@ -12,7 +12,7 @@
         <scene sceneID="CFb-69-jF4">
             <objects>
                 <navigationController id="HGs-8t-DSS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Events" image="first" id="9a2-ZZ-rbT"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="iconEvents" selectedImage="iconEvents" id="9a2-ZZ-rbT"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NQy-az-E3e">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -244,6 +244,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="iconEvents" width="20" height="20"/>
     </resources>
 </document>
